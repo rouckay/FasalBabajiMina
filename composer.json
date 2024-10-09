@@ -1,0 +1,104 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "afsakar/filament-translate-action": "^1.1",
+        "awcodes/filament-badgeable-column": "^2.3",
+        "aymanalhattami/filament-page-with-sidebar": "^2.5",
+        "barryvdh/laravel-dompdf": "^2.2",
+        "bezhansalleh/filament-language-switch": "^3.1",
+        "dompdf/dompdf": "^2.0",
+        "eightynine/filament-excel-import": "^3.1",
+        "elibyy/tcpdf-laravel": "^11.1",
+        "filament/filament": "^3.2",
+        "filament/notifications": "^3.2",
+        "filament/spatie-laravel-google-fonts-plugin": "^3.2",
+        "filament/spatie-laravel-media-library-plugin": "^3.2",
+        "filament/spatie-laravel-settings-plugin": "^3.2",
+        "filament/widgets": "^3.2",
+        "guava/filament-knowledge-base": "^1.9",
+        "hasnayeen/themes": "^3.0",
+        "joaopaulolndev/filament-edit-profile": "^1.0",
+        "joaopaulolndev/filament-pdf-viewer": "^1.0",
+        "joelbutcher/laravel-archivable": "^1.4",
+        "laravel/framework": "^11.9",
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.9",
+        "laraveldaily/laravel-invoices": "^4.0",
+        "livewire/livewire": "^3.5",
+        "maatwebsite/excel": "^3.1",
+        "mcamara/laravel-localization": "^2.0",
+        "okeonline/filament-archivable": "^0.0.2",
+        "pelmered/filament-money-field": "^1.4",
+        "phpoffice/phpword": "^1.3",
+        "psr/simple-cache": "^2.0",
+        "pxlrbt/filament-excel": "^2.3",
+        "pxlrbt/filament-spotlight": "^1.2",
+        "shuvroroy/filament-spatie-laravel-backup": "^2.2",
+        "spatie/laravel-settings": "^3.3",
+        "tomatophp/filament-pwa": "^1.0",
+        "ysfkaya/filament-phone-input": "^2.3",
+        "z3d0x/filament-logger": "^0.7.2"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "laravel/pint": "^1.13",
+        "laravel/sail": "^1.26",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.0",
+        "phpunit/phpunit": "^11.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true
+}
