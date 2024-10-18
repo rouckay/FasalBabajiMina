@@ -194,117 +194,7 @@ class CustomerNumerahaResource extends Resource
                                             ->maxLength(191),
                                     ])->columnSpan(6)
                                 ])->columns(12),
-                                Placeholder::make('')
-                                    ->content(new HtmlString('<strong>د مشتری د وکیل معلومات</strong>')),
-                                Card::make()->schema([
-                                    Grid::make()->schema([
-                                        TextInput::make('responsable_name')
-                                            ->label('نوم')
-                                            // ->helperText('مکمل نوم')
-                                            ->required()
-                                            ->prefixIcon('heroicon-o-user')
-                                            ->placeholder('نام')
-                                            ->maxLength(191),
-                                        TextInput::make('responsable_father_name')
-                                            ->label('د پلار نوم')
-                                            ->placeholder('د پلار نوم')
-                                            ->prefixIcon('heroicon-o-user')
-                                            ->maxLength(191),
-                                        Select::make('responsable_province')
-                                            ->label('ولایت')
-                                            ->placeholder('ولایت انتخاب کړی.')
-                                            ->prefixIcon('heroicon-m-globe-alt')
-                                            ->options([
-                                                'بلخ' => 'بلخ',
-                                                'بامیان' => 'بامیان',
-                                                'بادغیس' => 'بادغیس',
-                                                'بدخشان' => 'بدخشان',
-                                                'بغلان' => 'بغلان',
-                                                'دایکندی' => 'دایکندی',
-                                                'فراه' => 'فراه',
-                                                'فاریاب' => 'فاریاب',
-                                                'غزنی' => 'غزنی',
-                                                'غور' => 'غور',
-                                                'هلمند' => 'هلمند',
-                                                'هرات' => 'هرات',
-                                                'جوزجان' => 'جوزجان',
-                                                'کابل' => 'کابل',
-                                                'قندهار' => 'قندهار',
-                                                'کاپیسا' => 'کاپیسا',
-                                                'کندز' => 'کندز',
-                                                'خوست' => 'خوست',
-                                                'کنر' => 'کنر',
-                                                'لغمان' => 'لغمان',
-                                                'لوگر' => 'لوگر',
-                                                'ننگرهار' => 'ننگرهار',
-                                                'نیمروز' => 'نیمروز',
-                                                'نورستان' => 'نورستان',
-                                                'پنجشیر' => 'پنجشیر',
-                                                'پروان' => 'پروان',
-                                                'سمنگان' => 'سمنگان',
-                                                'سرپل' => 'سرپل',
-                                                'تخار' => 'تخار',
-                                                'ارزگان' => 'ارزگان',
-                                                'وردک' => 'وردک',
-                                                'زابل' => 'زابل',
-                                                'پکتیا' => 'پکتیا',
-                                                'پکتیکا' => 'پکتیکا',
-                                            ]),
-                                        TextInput::make('responsable_district')
-                                            ->label('ولسوالی')
-                                            ->placeholder('ولسوالی')
-                                            ->prefixIcon('heroicon-o-identification')
-                                            ->maxLength(191),
-                                        FileUpload::make('responsable_image')
-                                            ->directory('responsable_images')
-                                            ->preserveFilenames()
-                                            ->downloadable()
-                                            ->placeholder('د مشتری د وکیل انځور')
-                                            ->openable()
-                                            ->uploadingMessage('د مشتری عکس د اپلوډ په حال کی دی...')
-                                            ->previewable()
-                                            ->required()
-                                            ->label('د مشتری د وکیل انځور')
-                                            ->image()
-                                            ->imageEditor()
-                                            ->imageEditorAspectRatios([
-                                                null,
-                                                '16:9',
-                                                '4:3',
-                                                '1:1',
-                                            ]),
-                                    ])->columnSpan(6),
-                                    Grid::make()->schema([
-                                        TextInput::make('responsable_grand_father_name')
-                                            ->label('د نیکه نوم')
-                                            ->placeholder('د نیکه نوم')
-                                            ->prefixIcon('heroicon-o-user')
-                                            ->maxLength(191),
-                                        TextInput::make('responsable_mobile_number')
-                                            ->label('تلفن نمبر')
-                                            ->prefixIcon('heroicon-o-phone')
-                                            ->numeric()
-                                            ->placeholder(' 234 5678 071')
-                                            ->extraAttributes([
-                                                'oninput' => 'this.value = this.value.replace(/[٠-٩]/g, function(d) { return d.charCodeAt(0) - 1632; });'
-                                            ])
-                                            // ->helperText('07 په اتومات ډول خپله سیستم لیکی تاسی خپل باقی نمبر ټایپ کړی')
-                                            ->mask(RawJs::make(<<<'JS'
-                                                        $input.startsWith('07') ? '079-999-9999' : '079-999-9999'? :''
-                                                JS))
-                                            ->maxLength(12),
-                                        TextInput::make('responsable_village')
-                                            ->label('کلی')
-                                            ->placeholder('کلی')
-                                            ->prefixIcon('heroicon-m-map-pin')
-                                            ->maxLength(191),
-                                        TextInput::make('responsable_tazkira')
-                                            ->label('تذکره نمبر')
-                                            ->placeholder('تذکره نمبر')
-                                            ->prefixIcon('heroicon-o-identification')
-                                            ->maxLength(191),
-                                    ])->columnSpan(6)
-                                ])->columns(12),
+
                             ]),
                         Select::make('numeraha_id')
                             ->label('نمره (ځمکه)')
@@ -338,12 +228,12 @@ class CustomerNumerahaResource extends Resource
                                         $set('numeraha_details', null);
                                     }
                                     // The Numerah Details fetcing is finished -------------------------------------------------------------------------------------------
-
+                    
 
 
                                     // Initially disable createOptionForm
                                     // $set('can_create_option', false);
-
+                    
                                     // if ($numeraha) {
                                     //     // Check if any of the specified fields are empty
                                     //     if (empty($numeraha->north) || empty($numeraha->south) || empty($numeraha->east) || empty($numeraha->west)) {
@@ -549,9 +439,9 @@ class CustomerNumerahaResource extends Resource
                             ->label('باقی پیسی')
                             ->content(function ($get) {
                                 // badge is started here
-
+                    
                                 // Logic to return content with a badge
-
+                    
                                 $payed_price = $get('payed_price') ?? 0;
                                 $total_price = $get('total_price') ?? 0;
 
